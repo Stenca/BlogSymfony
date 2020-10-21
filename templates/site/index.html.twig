@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+
+<section class "articles">
+
+    {% for article in articles %}
+        <articles>
+            <h2>{{article.title}}</h2>
+            <div class="metadata">Ecrit le {{article.createdAt | date ('d/m/Y') }} à {{article.createdAt | date('H:i') }}
+            <div class="content">
+                {{article.image | raw}}
+                {{article.content | raw}}
+                <a href="{{ path('site_show', {'id' : article.id}) }}" class="btn btn-primary">en lire plus</a>
+            </div>
+        </articles>
+    {% endfor %}
+</section>
+{% endblock %}
